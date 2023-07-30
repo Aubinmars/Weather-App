@@ -8,6 +8,10 @@ body{
     font-size: 120%;
     background: #222;
     background-image: url(https://tinyurl.com/5ax84b43);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover
+   
 }
 
 .card {
