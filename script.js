@@ -39,16 +39,30 @@ let weather = {
       },
     };
     
-    document.querySelector(".search button").addEventListener("click", function () {
-      weather.search();
-    });
-    
-    document
-      .querySelector(".search-bar")
-      .addEventListener("keyup", function (event) {
-        if (event.key == "Enter") {
-          weather.search();
+    document.addEventListener('DOMContentLoaded', function () {
+        var searchButton = document.querySelector(".search button");
+      
+        if (searchButton !== null) {
+          searchButton.addEventListener("click", function () {
+            weather.search();
+          });
+        } else {
+          console.error("Search button not found!");
         }
-      });
+      });      
+    
+      document.addEventListener('DOMContentLoaded', function () {
+        var searchBar = document.querySelector(".search-bar");
+      
+        if (searchBar !== null) {
+          searchBar.addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+              weather.search();
+            }
+          });
+        } else {
+          console.error("Search bar not found or doesn't exist in the DOM.");
+        }
+      });      
     
     weather.fetchWeather("Kigali");
